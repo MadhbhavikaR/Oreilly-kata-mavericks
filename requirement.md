@@ -1,11 +1,11 @@
-The Road Warrior
+## The Road Warrior
 A new startup wants to build the next-generation online trip management dashboard to allow travellers to see all of their existing reservations organized by trip either online (web) or through their mobile device.
 
 User Volume that should be supported
 Active User per week: 2 million active users/week
 Total users: 15 million (user accounts)
 
-Requirements
+## Requirements
 Poll email looking for travel-related emails
 Filter and whitelist certain emails
 The system must interface with the agency’s existing airline, hotel, and car rental interface system to update travel details (delays, cancellations, updates, gate changes, etc.). 
@@ -17,12 +17,12 @@ Richest user interface possible across all deployment platform requirements.
 Provide end-of-year summary reports for users with a wide range of metrics about their travel usage
 Road Warrior gathers analytical data from users' trips for various purposes - travel trends, locations, airline and hotel vendor preferences, cancellation and update frequency, and so on. 
 
-Additional context
+## Additional context
 Must integrate seamlessly with existing travel systems (i.e. SABRE, APOLLO)
 Must integrate with a preferred travel agency for quick problem resolution (help me!)
 Must work internationally
 
-Technical requirements
+## Technical requirements
 Users must be able to access the system at all times (max 5 minutes per month of unplanned downtime)
 Travel updates must be presented in the app within 5 minutes of generation by the source
 Response time from web (800ms) and mobile (First-contentful paint of under 1.4 sec)
