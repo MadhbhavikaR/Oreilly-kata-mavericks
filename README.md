@@ -226,15 +226,11 @@ Identifying the different parts of the application and scope of the Architectura
 
 ### System Design
 
-   System Architecture Diagram and Explanation
-
-### Security
-
-   Security and details
+![Local Image](Architecture%20Diagrams/Road%20Warrior-System%20Architecture%20V3-System%20Architecture.drawio.svg)
 
 ### Deployment
 
-This section will discuss the deployment strategy.
+![Local Image](Architecture%20Diagrams/Road%20Warrior-System%20Architecture%20V3-Deployment%20diagram.drawio.svg)
 
 
 ## Architecture Decision Records (ADR)
