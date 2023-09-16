@@ -1,0 +1,18 @@
+@startuml
+actor TRAVELLER as TRAVELLER
+participant APPLICATION as APPLICATION
+participant "Authentication Service" as AuthService
+participant "Database" as Database
+
+TRAVELLER -> APPLICATION: Visit Website
+TRAVELLER -> APPLICATION: Click on Login
+
+TRAVELLER -> APPLICATION: Enter Email and Password
+APPLICATION -> AuthService: Request Authentication
+AuthService -> Database: Query User Credentials
+Database --> AuthService: User Credentials
+AuthService --> APPLICATION: Authentication Result
+
+TRAVELLER <- APPLICATION: Login Success/Failure
+
+@enduml

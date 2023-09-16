@@ -1,0 +1,60 @@
+@startuml UseCaseDiagram
+!define ICONURL https://plantuml.com/gicon/
+!define TRAVELLER traveler
+!define ADMINISTRATOR administrator
+!define API_CLIENT api_client
+!define APPLICATION application
+!define UI_SERVICE ui_service
+!define ADMIN_SERVICE admin_service
+!define NOTIFICATION_SERVICE notification_service
+!define AUDIT_LOGGING_SERVICE audit_logging_service
+!define USER_MANAGEMENT_SERVICE user_management_service
+!define TRIP_SERVICE trip_service
+!define ANALYTICS_SERVICE analytics_service
+!define TRAVEL_FEEDS travel_feeds
+!define THIRD_PARTY_CONNECTORS thirdparty_connectors
+
+!define EMAIL email
+!define PNR pnr
+!define BOOKING_ID booking_id
+
+title "Basic component interaction"
+actor TRAVELLER as TRAVELLER #LightCyan
+actor ADMINISTRATOR as ADMINISTRATOR #LightGreen
+actor API_CLIENT as API_CLIENT #LightSkyBlue
+
+participant APPLICATION as APPLICATION
+participant UI_SERVICE as UI_SERVICE
+participant ADMIN_SERVICE as ADMIN_SERVICE
+participant NOTIFICATION_SERVICE as NOTIFICATION_SERVICE
+participant AUDIT_LOGGING_SERVICE as AUDIT_LOGGING_SERVICE
+participant USER_MANAGEMENT_SERVICE as USER_MANAGEMENT_SERVICE
+participant TRIP_SERVICE as TRIP_SERVICE
+participant ANALYTICS_SERVICE as ANALYTICS_SERVICE
+participant TRAVEL_FEEDS as TRAVEL_FEEDS
+participant THIRD_PARTY_CONNECTORS as THIRD_PARTY_CONNECTORS
+
+TRAVELLER --> UI_SERVICE : Uses
+ADMINISTRATOR --> API_CLIENT : Manages
+TRAVELLER --> APPLICATION : Uses
+TRAVELLER --> UI_SERVICE : Chooses option
+UI_SERVICE --> ADMIN_SERVICE : Verifies email scanning
+UI_SERVICE --> TRIP_SERVICE : Manages trip
+UI_SERVICE --> USER_MANAGEMENT_SERVICE : Manages user data
+UI_SERVICE --> ANALYTICS_SERVICE : Gathers analytical data
+UI_SERVICE --> NOTIFICATION_SERVICE : Receives travel updates
+UI_SERVICE --> THIRD_PARTY_CONNECTORS : Interfaces with third parties
+
+UI_SERVICE --> AUDIT_LOGGING_SERVICE : Logs actions
+APPLICATION --> TRAVEL_FEEDS : Fetches travel updates
+UI_SERVICE --> TRAVEL_FEEDS : Fetches travel updates
+UI_SERVICE --> THIRD_PARTY_CONNECTORS : Interfaces with third parties
+NOTIFICATION_SERVICE --> APPLICATION: Sends notifications
+
+
+
+
+
+
+
+@enduml

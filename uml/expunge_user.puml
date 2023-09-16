@@ -1,0 +1,36 @@
+@startuml
+actor User
+actor Administrator
+participant “Admin Interface” as AdminInterface
+participant “Admin Service” as AdminService
+participant “Notification Service” as NotificationService
+participant “Database” as Database
+User -> AdminInterface: Request Expunge
+AdminInterface -> AdminService: Initiate Expunge Request
+AdminService -> Database: Execute Expunge Operation
+Database --> AdminService: Expunge Completed
+AdminService -> NotificationService: Send Confirmation Notification
+NotificationService --> User: Send Confirmation Notification
+User -> AdminInterface: Confirm Expunge
+AdminInterface -> AdminService: Confirm Expunge
+AdminService --> AdminInterface: Confirmation Received
+AdminInterface --> User: Confirmation Received
+AdminService --> Database: Confirm Expunge
+Database --> AdminService: Expunge Confirmed
+AdminService --> NotificationService: Expunge Confirmed
+NotificationService --> User: Expunge Confirmation
+Administrator -> AdminInterface: Initiate Expunge
+AdminInterface -> AdminService: Send Expunge Request
+AdminService -> Database: Execute Expunge Operation
+Database --> AdminService: Expunge Completed
+AdminService -> NotificationService: Send Confirmation Notification
+NotificationService --> Administrator: Send Confirmation Notification
+Administrator -> AdminInterface: Confirm Expunge
+AdminInterface -> AdminService: Confirm Expunge
+AdminService --> AdminInterface: Confirmation Received
+AdminInterface --> Administrator: Confirmation Received
+AdminService --> Database: Confirm Expunge
+Database --> AdminService: Expunge Confirmed
+AdminService --> NotificationService: Expunge Confirmed
+NotificationService --> Administrator: Expunge Confirmation
+@enduml
