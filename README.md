@@ -22,6 +22,8 @@
 - [References](#references)
 
 ---
+# This is the entry by team Mavericks for the O'reilly Architectural Kata Challenge September 2023.
+---
 
 ## Introduction
 
@@ -33,12 +35,10 @@ In response to the dynamic needs for millions of users and the relentless pace o
 
 The challenge before us is immense, with a user volume that demands peak performance, from real-time travel updates to intuitive reservation management, social sharing capabilities, in-depth analytical insights, seamless integration with existing travel systems, and maintaining high availability and performance.
 
-## Vision
+## The Kata
+- [Link to kata details](requirement.md)
 
-### Requirements
-- [Link to Requirements](requirement.md)
-
-### Goals
+## Goals
 
 - **Enhanced User Experience**: Provide travelers with an unparalleled user experience, simplifying the complexities of travel management, making it intuitive and insightful.
   
@@ -58,7 +58,7 @@ The challenge before us is immense, with a user volume that demands peak perform
 
 - **Internationalization**: We should be able to view the application in different locales and if possible pull in the foreign exchange rates from the base location of the user to his travel destination. Additionally, we can show things to visit in destination based on feeds from trip-advisors and other such aggregation portals.
 
-### Non Functional Requirement
+## Non Functional Requirement
 
 The following NFRs are identified after careful consideration of the business requirement:
  - User Volume: 
@@ -92,12 +92,13 @@ The following section outlines the important actors, their actions, and the prim
     <td>User / Traveller </td>
     <td>* Registration / Onboarding <br>
         * Updates user profile <br>
-        * Manages their trip</td>
+        * View their trips</td>
   </tr>
   <tr>
     <td>Administrator</td>
     <td>* Manages user access, permissions<br>
-        * Manages agencies</td>
+        * Manages agencies<br>
+        * Manages the system</td>
   </tr>
   <tr>
     <td>API User</td>
@@ -108,6 +109,10 @@ The following section outlines the important actors, their actions, and the prim
 ## Key System Scenarios
 
 The following scenarios, drawn from the actors and actions mentioned earlier, will shape the architecture of Road Warrior.
+
+-  <h3> Basic Components Interaction </h3>
+
+![Local Image](uml/Sequence%20Diagrams/components_uml.png)
 
 -  <h3> User Login using email </h3>
 
@@ -132,11 +137,6 @@ The following scenarios, drawn from the actors and actions mentioned earlier, wi
 -  <h3> Trends Flow (or travel insights flow) </h3>
 
 ![Local Image](uml/Sequence%20Diagrams/trends_uml.png)
-
--  <h3> Basic Components Interaction </h3>
-
-![Local Image](uml/Sequence%20Diagrams/components_uml.png)
-
 
 ## Architectural Essence
 
@@ -180,7 +180,7 @@ Using the Architecture Characteristics worksheet, we have identified the followi
   <tr>
     <td>[Y]</td>
     <td>Integration</td>
-    <td></td>
+    <td>Ensure that we are able to seamlessly integrate with different travel and other service provider.</td>
   </tr>
   <tr>
     <td></td>
@@ -191,11 +191,12 @@ Using the Architecture Characteristics worksheet, we have identified the followi
 
 ## Implicit Characteristics
 
-The following characteristics are like the foundation of our architecture. They play a vital role in shaping the overall architecture.
+The following characteristics are the foundation of our architecture. They play a vital role in shaping the overall architecture.
 
 - Security
 - Feasibility
 - Usability
+- and other NFRs
 
 ## Approach
 
@@ -205,31 +206,30 @@ The key characteristics mentioned above are summarized below. It's important to 
 
 [Original comparison matrix from DeveloperToArchitect.com]
 
-Based on the above matrix, the below candidates for our architecture need further analysis:
-
+Based on the above matrix, our architecture comparises of:
 - Event-Driven
 - Microservices
 - Service-Oriented
 
 ## Architectural Structures
 
-Identifying the different parts of the application and scope of the Architectural characteristics. The approach we have taken are worflow approach and actor-action mapping. An architecture quantum include all the necessary components to function independantly from other parts of the architectures.
+Identifying the different parts of the application and scope of the Architectural characteristics. The approach we have taken are worflow approach and actor-action mapping. An architecture quantum include all the necessary components to function independently from each other.
 
 ### Components
 - User Interface
 - User Management
 - Email Parser
-- Trip Management
+- Trip Service
 - Analytics
-- Data Transoformation
-- Integration    
+- Integration with data transformation
+- Other user experience services.
 
 ### System Design
 
 ![Local Image](Architecture%20Diagrams/Arch.png)
 *Please open the image in a new tab and zoom to see the necessary details.*
 
-### Deployment
+### Deployment Diagram
 
 ![Local Image](Architecture%20Diagrams/Road%20Warrior-System%20Architecture%20V3-Deployment%20diagram.drawio.svg)
 
@@ -258,11 +258,3 @@ Identifying the different parts of the application and scope of the Architectura
 ## References
 [Fundamentals of Software Architecture](https://learning.oreilly.com/library/view/fundamentals-of-software/9781492043447/)      
 [developertoarchitect.com](https://www.developertoarchitect.com/resources.html)
-
-
-
-
-
-
-
-
