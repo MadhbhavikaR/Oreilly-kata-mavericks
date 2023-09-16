@@ -227,7 +227,7 @@ Identifying the different parts of the application and scope of the Architectura
 ### System Design
 
 ![Local Image](Architecture%20Diagrams/Arch.png)
-*Please zoom the image to the necessary resolutions.*
+*Please open the image in a new tab and zoom to see the necessary details.*
 
 ### Deployment
 
