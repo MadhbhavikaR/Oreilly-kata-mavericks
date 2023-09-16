@@ -226,7 +226,8 @@ Identifying the different parts of the application and scope of the Architectura
 
 ### System Design
 
-![Local Image](Architecture%20Diagrams/Road%20Warrior-System%20Architecture%20V3-System%20Architecture.drawio.svg)
+![Local Image](Architecture%20Diagrams/Arch.png)
+*Please zoom the image to the necessary resolutions.*
 
 ### Deployment
 
