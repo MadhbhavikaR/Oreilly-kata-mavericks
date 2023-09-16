@@ -1,11 +1,8 @@
-# Architecture Katas 2023
-## Road Warrior
+# O'Reilly Architecture Katas 2023 : The Road Warrior
 
----
-
-### Contents
+### Content
 - [Introduction](#introduction)
-- [Business Vision](#business-vision)
+- [Vision](#vision)
   - [Requirements](#requirements)
   - [Goals](#goals)
   - [Non Functional Requirement](#non-functional-requirement)
@@ -26,15 +23,17 @@
 
 ---
 
-# Introduction
+## Introduction
 
-In a world where travel has become an integral part of modern life, the journey towards creating the ultimate travel companion begins. Welcome to the solution architecture document for "The Road Warrior," where we embark on a quest to revolutionize the way travelers manage their trips.
+In a world where travel has become an integral part of modern life, the journey towards creating the ultimate travel companion begins. 
 
-In response to the dynamic needs for millions of users and the relentless pace of the travel industry, we envision a next-generation online trip management dashboard, a unified platform to effortlessly organize and access Airline, Car Rental, and Hotel reservations, whether it's from the comfort of their web browser or mobile device.
+Welcome to the solution architecture document for *The Road Warrior* where we embark on a quest to revolutionize the way travelers manage their trips.
+
+In response to the dynamic needs for millions of users and the relentless pace of the travel industry, we envision a next-generation online trip management dashboard, a unified platform to effortlessly organize and access **Airline**, **Car Rental**, and **Hotel reservations**, whether it's from the comfort of their web browser or mobile device.
 
 The challenge before us is immense, with a user volume that demands peak performance, from real-time travel updates to intuitive reservation management, social sharing capabilities, in-depth analytical insights, seamless integration with existing travel systems, and maintaining high availability and performance.
 
-## Business Vision
+## Vision
 
 ### Requirements
 - [Link to Requirements](https://docs.google.com/document/d/1oqQZ03vWqVhqmomslqfp_W929GJDIGQ0cagaT6H0Oxw/edit?usp=sharing)
@@ -55,47 +54,45 @@ The challenge before us is immense, with a user volume that demands peak perform
   
 - **Analytical Insights**: Gather and present analytical data from users' trips, allowing 'Road Warrior' to identify travel trends and preferences.
   
-- **Seamless Integration**: Seamlessly integrate with established travel systems like SABRE and APOLLO with the flexibility to integrate with additional systems with minimal effort.
+- **Seamless Integration**: Seamlessly integrate with established travel systems like Sabre and Apollo with the flexibility to integrate with additional systems with minimal effort.
 
-- **Internationalization**
+- **Internationalization**: We should be able to view the application in different locales and if possible pull in the foreign exchange rates from the base location of the user to his travel destination. Additionally, we can show things to visit in destination based on feeds from trip-advisors and other such aggregation portals.
 
 ### Non Functional Requirement
 
- The following NFRs are identified after carefule consideration of the business requirement
+The following NFRs are identified after careful consideration of the business requirement:
  - User Volume: 
-    - Support a user base of 2 million active users per week.
-    - Accommodate a total of 15 million user accounts
+    - Support a user base of *2 million* active users per week.
+    - Accommodate a total of *15 million* user accounts
  - Availability:
     - Ensure a high level of availability with a target of 99.999%.
  - Data Privacy :
     - Ensure compliance with General Data Protection Regulation (GDPR) requirements.
  - Performance:
-    - Achieve an 800ms or faster response time on web applications.
-    - Achieve a first contentful paint time of under 1.4 seconds on mobile devices.
+    - Achieve an *800ms* or faster response time on web applications.
+    - Achieve a first contentful paint time of under *1.4 seconds* on mobile devices.
     - Refresh app content within 5 minutes to provide users with the latest updates.
  - Security:
     - Implement robust security measures, including Access Control Lists (ACLs), to safeguard the system's data and functionality
     
-    These NFRs cover critical aspects of the solution's architecture, including user scalability, availability, data privacy, performance, and security, and should guide the design and development of the system             
+These NFRs cover critical aspects of the solution's architecture, including user scalability, availability, data privacy, performance, and security, and should guide the design and development of the system.
 
----
+## Setting the Stage
 
-# Setting the Stage
-
-## Actors, Actions, and Scenarios
+### Actors, Actions, and Scenarios
 The following section outlines the important actors, their actions, and the primary scenarios that will guide the architecture of the Road Warrior.
 
-### Actors and Actions
+#### Actors and Actions
 <table border="1">
   <tr>
     <th>Actor</th>
     <th>Actions</th>
   </tr>
   <tr>
-    <td>User</td>
+    <td>User / Traveller </td>
     <td>* Registration / Onboarding <br>
         * Updates user profile <br>
-        * Organizes their trip</td>
+        * Manages their trip</td>
   </tr>
   <tr>
     <td>Administrator</td>
@@ -103,12 +100,8 @@ The following section outlines the important actors, their actions, and the prim
         * Manages agencies</td>
   </tr>
   <tr>
-    <td>Agency User</td>
-    <td>* Views travel insights</td>
-  </tr>
-  <tr>
-    <td>System</td>
-    <td>* Views travel insights</td>
+    <td>API User</td>
+    <td>*View travel insights and trends (based on subscription)</td>
   </tr>
 </table>
 
@@ -116,41 +109,40 @@ The following section outlines the important actors, their actions, and the prim
 
 The following scenarios, drawn from the actors and actions mentioned earlier, will shape the architecture of Road Warrior.
 
--  <h2> 01 User Login using email </h2>
+-  <h3> User Login using email </h3>
 
-![Local Image](Sequence%20Diagrams/user_email_uml.png)
+![Local Image](uml/Sequence%20Diagrams/user_email_uml.png)
 
--  <h2> 02 Social Login </h2>
+-  <h3> Social Login </h3>
 
-![Local Image](Sequence%20Diagrams/social_email_uml.png)
+![Local Image](uml/Sequence%20Diagrams/social_email_uml.png)
 
--  <h2> 03 User initiated expunge </h2>
+-  <h3> User initiated expunge (expunge is a process of removing a user from the system) </h3>
 
-![Local Image](Sequence%20Diagrams/expunge_user_uml.png)
+![Local Image](uml/Sequence%20Diagrams/expunge_user_uml.png)
 
--  <h2> 04 Admin initated expunge </h2>
+-  <h3> Admin initated expunge </h3>
 
-![Local Image](Sequence%20Diagrams/expunge_admin_uml.png)
+![Local Image](uml/Sequence%20Diagrams/expunge_admin_uml.png)
 
--  <h2> 05 User Consent Flow </h2>
+-  <h3> User Consent Flow </h3>
 
-![Local Image](Sequence%20Diagrams/user_consent_uml.png)
+![Local Image](uml/Sequence%20Diagrams/user_consent_uml.png)
 
--  <h2> 05 Trends Flow </h2>
+-  <h3> Trends Flow (or travel insights flow) </h3>
 
-![Local Image](Sequence%20Diagrams/trends_uml.png)
+![Local Image](uml/Sequence%20Diagrams/trends_uml.png)
 
--  <h2> 06 Basic Components Interaction </h2>
+-  <h3> Basic Components Interaction </h3>
 
-![Local Image](Sequence%20Diagrams/components_uml.png)
+![Local Image](uml/Sequence%20Diagrams/components_uml.png)
 
----
 
-# Architectural Essence
+## Architectural Essence
 
-## Architecture Characteristics
+### Architecture Characteristics
 
-The essential traits that define the architecture of this solution, determining the most optimal path forward. Typically, best practice is to identify no more than seven. These, combined with the underlying architectural attributes, will shape the overall design of the Road Warrior.
+Here we have listed the essential traits that define the architecture of this solution which typically should not be more than seven. These, combined with the underlying architectural attributes, will shape the overall design of the Road Warrior.
 
 Using the Architecture Characteristics worksheet, we have identified the following architectural characteristics, and the top 3 marked as [Y]:
 
@@ -215,24 +207,15 @@ The key characteristics mentioned above are summarized below. It's important to 
 
 Based on the above matrix, the below candidates for our architecture need further analysis:
 
-- Event-Driven (to-do analysis)
-- Microservices (to-do analysis)
-- Service-Oriented (to-do analysis)
+- Event-Driven
+- Microservices
+- Service-Oriented
 
-### Conclusion
+## Architectural Structures
 
-### Decision
-ADR: [Link to ADR]
+Identifying the different parts of the application and scope of the Architectural characteristics. The approach we have taken are worflow approach and actor-action mapping. An architecture quantum include all the necessary components to function independantly from other parts of the architectures.
 
----
-
-# Architectural Structures
-
- Identifying the different parts of the application and scope of the Architectural characteristics. The approach we have taken are worflow approach and actor-action mapping.    
-
- An acrhitecture quantum include all the necessary components to function independantly from other parts of the architectures
-
-## Components
+### Components
 - User Interface
 - User Management
 - Email Parser
@@ -241,26 +224,21 @@ ADR: [Link to ADR]
 - Data Transoformation
 - Integration    
 
-## System Design
+### System Design
 
    System Architecture Diagram and Explanation
 
-## Security
+### Security
 
    Security and details
 
----
-
-# Deployment
+### Deployment
 
 This section will discuss the deployment strategy.
 
----
 
-# ADRs
+## ADRs
 
 This section will contain Architecture Decision Records.
 
----
-
-# References
+## References
