@@ -237,8 +237,25 @@ Identifying the different parts of the application and scope of the Architectura
 This section will discuss the deployment strategy.
 
 
-## ADRs
-
-This section will contain Architecture Decision Records.
+## Architecture Decision Records (ADR)
+[ADRs/ADR 0 - Web Service vs. Monolith vs. Heterogeneous](ADR/ADR%200%20-%20%20Web%20Service%20vs.%20Monolith%20vs.%20Heterogeneous.md)  
+[ADRs/ADR 1 - Native vs. Hybrid Application](ADRs/ADR%201%20-%20Native%20vs.%20Hybrid%20Application.md)  
+[ADRs/ADR 2 - Single DB vs. DB for Each Service](ADRs/ADR%202%20-%20Single%20DB%20vs.%20DB%20for%20Each%20Service.md)  
+[ADRs/ADR 3 - Serverless vs. Kubernetes (K8S) for Deployment](ADRs/ADR%203%20-%20Serverless%20vs.%20Kubernetes%20(K8S)%20for%20Deployment.md)  
+[ADRs/ADR 4 - Choice of Authentication and Authorization Service](ADRs/ADR%204%20-%20Choice%20of%20Authentication%20and%20Authorization%20Service.md)  
+[ADRs/ADR 5 - Choice of Continuous Integration and Continuous Deployment (CI CD) Tools](ADRs/ADR%206%20-%20Choice%20of%20Data%20Storage%20for%20Analytics.md)  
+[ADRs/ADR 6 - Choice of Data Storage for Analytics](ADRs/ADR%207%20-%20Cloud%20vs.%20Self-Hosting%20for%20Infrastructure%20Deployment.md)  
+[ADRs/ADR 7 - Cloud vs. Self-Hosting for Infrastructure Deployment](ADRs/ADR%207%20-%20Cloud%20vs.%20Self-Hosting%20for%20Infrastructure%20Deployment.md)  
+[ADRs/ADR 8 - Web Server vs. S3 and CDN for Site Hosting](ADRs/ADR%208%20-%20Web%20Server%20vs.%20S3%20and%20CDN%20for%20Site%20Hosting.md)  
+[ADRs/ADR 9 - Choice of Container Orchestration Platform](ADRs/ADR%209%20-%20Choice%20of%20Container%20Orchestration%20Platform.md)  
+[ADRs/ADR 10 - Security vs. Open Data Flow Within the VPC](ADRs/ADR%2010%20-%20Security%20vs.%20Open%20Data%20Flow%20Within%20the%20VPC.md)  
+[ADRs/ADR 11 - Centralized vs. Service-Specific Logging](ADRs/ADR%2011%20-%20Centralized%20vs.%20Service-Specific%20Logging.md)  
+[ADRs/ADR 12 - RDBMS vs. Document DB for Data Storage](ADRs/ADR%2012%20-%20RDBMS%20vs.%20Document%20DB%20for%20Data%20Storage.md)  
+[ADRs/ADR 13 - JavaScript vs. Other Development Frameworks](ADRs/ADR%2013%20-%20JavaScript%20vs.%20Other%20Development%20Frameworks.md)  
+[ADRs/ADR 14 - Choice of API Gateway Service](ADR%2015%20-%20Choice%20of%20Load%20Balancer%20and%20Web%20Application%20Firewall%20(WAF).md)  
+[ADRs/ADR 15 - Choice of Load Balancer and Web Application Firewall (WAF)](ADRs/ADR%2016%20-%20Pull-Based%20vs.%20Push-Based%20Data%20Consumption%20Approaches.md)  
+[ADRs/ADR 16 - Pull-Based vs. Push-Based Data Consumption Approaches](ADRs/ADR%2016%20-%20Pull-Based%20vs.%20Push-Based%20Data%20Consumption%20Approaches.md)  
+[ADRs/ADR 17 - Schedule-Based vs. Event-Webhook-Based Triggers](ADRs/ADR%2017%20-%20Schedule-Based%20vs.%20Event-Webhook-Based%20Triggers.md)  
+[ADRs/ADR 18 - Individual Logging vs. Centralized Logging with Event Streaming](ADRs/ADR%2018%20-%20Individual%20Logging%20vs.%20Centralized%20Logging%20with%20Event%20Streaming.md)  
 
 ## References
