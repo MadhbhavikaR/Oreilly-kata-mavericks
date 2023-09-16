@@ -259,3 +259,11 @@ This section will discuss the deployment strategy.
 [ADRs/ADR 18 - Individual Logging vs. Centralized Logging with Event Streaming](ADRs/ADR%2018%20-%20Individual%20Logging%20vs.%20Centralized%20Logging%20with%20Event%20Streaming.md)  
 
 ## References
+[Fundamentals of Software Architecture](https://learning.oreilly.com/library/view/fundamentals-of-software/9781492043447/)
+[developertoarchitect.com](https://www.developertoarchitect.com/resources.html)
+
+
+
+
+
+
