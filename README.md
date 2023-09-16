@@ -36,7 +36,7 @@ The challenge before us is immense, with a user volume that demands peak perform
 ## Vision
 
 ### Requirements
-- [Link to Requirements](https://docs.google.com/document/d/1oqQZ03vWqVhqmomslqfp_W929GJDIGQ0cagaT6H0Oxw/edit?usp=sharing)
+- [Link to Requirements](requirement.md)
 
 ### Goals
 
