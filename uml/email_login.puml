@@ -1,18 +1,18 @@
 @startuml
-actor TRAVELLER as TRAVELLER
-participant APPLICATION as APPLICATION
-participant "Authentication Service" as AuthService
-participant "Database" as Database
+actor traveler as traveler
+participant application as application
+participant user_management_service as user_management_service
+participant database as database
 
-TRAVELLER -> APPLICATION: Visit Website
-TRAVELLER -> APPLICATION: Click on Login
+traveler -> application: Visit Website
+traveler -> application: Click on Login
 
-TRAVELLER -> APPLICATION: Enter Email and Password
-APPLICATION -> AuthService: Request Authentication
-AuthService -> Database: Query User Credentials
-Database --> AuthService: User Credentials
-AuthService --> APPLICATION: Authentication Result
+traveler -> application: Enter Email and Password
+traveler -> user_management_service: Request Authentication
+user_management_service -> database: Query User Credentials
+database --> user_management_service: User Credentials
+user_management_service --> traveler: Authentication Result
 
-TRAVELLER <- APPLICATION: Login Success/Failure
+traveler <- application: Login Success/Failure
 
 @enduml
