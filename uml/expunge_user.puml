@@ -1,36 +1,35 @@
 @startuml
 actor User
-actor Administrator
-participant “Admin Interface” as AdminInterface
-participant “Admin Service” as AdminService
+
+participant “Application” as Application
+participant "User Management Service" as USER_MANAGEMENT_SERVICE
 participant “Notification Service” as NotificationService
 participant “Database” as Database
-User -> AdminInterface: Request Expunge
-AdminInterface -> AdminService: Initiate Expunge Request
-AdminService -> Database: Execute Expunge Operation
-Database --> AdminService: Expunge Completed
-AdminService -> NotificationService: Send Confirmation Notification
-NotificationService --> User: Send Confirmation Notification
-User -> AdminInterface: Confirm Expunge
-AdminInterface -> AdminService: Confirm Expunge
-AdminService --> AdminInterface: Confirmation Received
-AdminInterface --> User: Confirmation Received
-AdminService --> Database: Confirm Expunge
-Database --> AdminService: Expunge Confirmed
-AdminService --> NotificationService: Expunge Confirmed
-NotificationService --> User: Expunge Confirmation
-Administrator -> AdminInterface: Initiate Expunge
-AdminInterface -> AdminService: Send Expunge Request
-AdminService -> Database: Execute Expunge Operation
-Database --> AdminService: Expunge Completed
-AdminService -> NotificationService: Send Confirmation Notification
+User -> Application: Request Expunge
+Application -> USER_MANAGEMENT_SERVICE: Initiate Expunge Request
+USER_MANAGEMENT_SERVICE -> Database: Execute Expunge Operation
+Database --> USER_MANAGEMENT_SERVICE: Expunge Requested
+USER_MANAGEMENT_SERVICE -> NotificationService: Send Confirmation Notification
+User -> Application: Confirm Expunge
+Application -> USER_MANAGEMENT_SERVICE: Confirm Expunge
+USER_MANAGEMENT_SERVICE --> Application: Confirmation Received
+Application --> User: Confirmation Received
+USER_MANAGEMENT_SERVICE --> Database: Confirm Expunge
+Database --> USER_MANAGEMENT_SERVICE: Expunge Confirmed
+USER_MANAGEMENT_SERVICE --> NotificationService: Expunge Confirmed
+
+Administrator -> Application: Initiate Expunge
+Application -> USER_MANAGEMENT_SERVICE: Send Expunge Request
+USER_MANAGEMENT_SERVICE -> Database: Execute Expunge Operation
+Database --> USER_MANAGEMENT_SERVICE: Expunge Completed
+USER_MANAGEMENT_SERVICE -> NotificationService: Send Confirmation Notification
 NotificationService --> Administrator: Send Confirmation Notification
-Administrator -> AdminInterface: Confirm Expunge
-AdminInterface -> AdminService: Confirm Expunge
-AdminService --> AdminInterface: Confirmation Received
-AdminInterface --> Administrator: Confirmation Received
-AdminService --> Database: Confirm Expunge
-Database --> AdminService: Expunge Confirmed
-AdminService --> NotificationService: Expunge Confirmed
+Administrator -> Application: Confirm Expunge
+Application -> USER_MANAGEMENT_SERVICE: Confirm Expunge
+USER_MANAGEMENT_SERVICE --> Application: Confirmation Received
+Application --> Administrator: Confirmation Received
+USER_MANAGEMENT_SERVICE --> Database: Confirm Expunge
+Database --> USER_MANAGEMENT_SERVICE: Expunge Confirmed
+USER_MANAGEMENT_SERVICE --> NotificationService: Expunge Confirmed
 NotificationService --> Administrator: Expunge Confirmation
 @enduml
