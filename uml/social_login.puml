@@ -1,27 +1,27 @@
 @startuml
-actor User
-participant "Web Application" as WebApp
+actor traveller as traveller
+participant application as application
 participant "OAuth Provider" as OAuthProvider
 
-User -> WebApp: Visit Website
-User -> WebApp: Click on Social Media Login
+traveller -> application: Visit Website
+traveller -> application: Click on Social Media Login
 
-User -> WebApp: Initiate OAuth Flow
-WebApp -> OAuthProvider: Redirect to OAuth Provider
+traveller -> application: Initiate OAuth Flow
+application -> OAuthProvider: Redirect to OAuth Provider
 
-User <- OAuthProvider: OAuth Redirect for Authentication
-User -> OAuthProvider: Authorize Application
+traveller <- OAuthProvider: OAuth Redirect for Authentication
+traveller -> OAuthProvider: Authorize Application
 
-User <- OAuthProvider: OAuth Code
+traveller <- OAuthProvider: OAuth Code
 
-WebApp -> OAuthProvider: Exchange OAuth Code
-OAuthProvider --> WebApp: Access Token
+application -> OAuthProvider: Exchange OAuth Code
+OAuthProvider --> application: Access Token
 
-WebApp -> OAuthProvider: Retrieve User Info
-OAuthProvider --> WebApp: User Info (Name, Email, etc.)
+application -> OAuthProvider: Retrieve User Info
+OAuthProvider --> application: User Info (Name, Email, etc.)
 
-WebApp -> WebApp: Authenticate User
+application -> application: Authenticate User
 
-User <- WebApp: Logged In
+traveller <- application: Logged In
 
 @enduml
