@@ -1,0 +1,17 @@
+@startuml
+actor Administrator
+participant "Admin Interface" as AdminInterface
+participant "Admin Service" as AdminService
+participant "Database" as Database
+participant "Notification Service" as NotificationService
+note right: Wait for x hours
+
+Administrator -> AdminInterface: Initiate Expunge
+AdminInterface -> NotificationService: Send Request Receipt Notification
+AdminInterface -> AdminService: Send Expunge Request
+AdminService -> Database: Execute Expunge Operation
+Database --> AdminService: Expunge Completed
+AdminService --> AdminInterface: Expunge Successful
+AdminInterface -> NotificationService: Send Confirmation Notification
+AdminInterface --> Administrator: Expunge Confirmation 
+@enduml
